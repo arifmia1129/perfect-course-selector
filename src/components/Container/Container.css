@@ -1,3 +1,8 @@
+.course-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
 @media screen and (max-width:576px) {
     .container{
         position: relative;
@@ -6,5 +11,6 @@
         z-index: -1;
         position: absolute;
         top: 50px;
+        display: block;
     }
 }
