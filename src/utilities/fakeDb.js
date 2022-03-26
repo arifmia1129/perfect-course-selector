@@ -26,9 +26,19 @@ const addDb = (id) => {
 
     localStorage.setItem("course-cart", JSON.stringify(courseCart));
 }
-
+const deleteDb = (id) => {
+    let courseCart;
+    const stored = localStorage.getItem("course-cart");
+    if (stored) {
+        courseCart = JSON.parse(stored);
+        if (id in courseCart) {
+            delete courseCart[id];
+        }
+    }
+    localStorage.setItem("course-cart", JSON.stringify(courseCart));
+}
 const removeDb = () => {
     localStorage.removeItem("course-cart");
 }
 
-export { addDb, removeDb, getStoredCourse };
+export { addDb, removeDb, getStoredCourse, deleteDb };

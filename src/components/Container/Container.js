@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Modal, Row } from 'react-bootstrap';
-import { addDb, getStoredCourse, removeDb } from '../../utilities/fakeDb';
+import { addDb, deleteDb, getStoredCourse, removeDb } from '../../utilities/fakeDb';
 import Course from '../Course/Course';
 import Summary from '../Summary/Summary';
 import "./Container.css";
@@ -78,6 +78,7 @@ const Container = () => {
     }
 
     const removeItem = (selectCourse) => {
+        deleteDb(selectCourse.id);
         const rest = course.filter(single => single.id !== selectCourse.id);
         setCourse(rest);
     }
