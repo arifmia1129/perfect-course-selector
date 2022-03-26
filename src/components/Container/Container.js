@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Modal, Row } from 'react-bootstrap';
 import { addDb, getStoredCourse, removeDb } from '../../utilities/fakeDb';
 import Course from '../Course/Course';
 import Summary from '../Summary/Summary';
@@ -46,11 +46,12 @@ const Container = () => {
                 setCourse(totalSelectCourse);
             }
             else {
-                alert("This course already exists!");
+                handleShow();
             }
         }
         else {
-            alert("Hey! You already select 4 course. Selected course range is : 4!")
+
+            handleShow();
         }
 
 
@@ -78,6 +79,10 @@ const Container = () => {
         const rest = course.filter(single => single.id !== selectCourse.id);
         setCourse(rest);
     }
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     return (
         <div className='container'>
             <Row>
@@ -86,6 +91,12 @@ const Container = () => {
                         {
                             courses.map(course => <Course key={course.id} course={course} selectCourse={selectCourse}></Course>)
                         }
+                        <Modal show={show} onHide={handleClose}>
+                            <Modal.Header closeButton>
+                                <Modal.Title className='text-warning'>Warning!!!!</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>Warning for you select exists course or more than 4 course. It's not allow.</Modal.Body>
+                        </Modal>
                     </div>
                 </Col>
                 <Col md={4} sm={12}>
@@ -94,6 +105,7 @@ const Container = () => {
                         {
                             course.map(singleCourse => <Summary key={singleCourse.id} single={singleCourse} perfectCourse={perfectCourse} removeItem={removeItem}></Summary>)
                         }
+
                         <div className="btn-container">
                             <div>
                                 <button className='lucky' onClick={perfectCourse}>PERFECT COURSE FOR YOU</button>
