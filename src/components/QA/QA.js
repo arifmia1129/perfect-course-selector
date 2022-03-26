@@ -1,8 +1,8 @@
 import React from 'react';
-
+import "./QA.css";
 const QA = () => {
     return (
-        <div>
+        <div className='test'>
             <div>
                 <h3>প্রশ্ন-১: React কিভাবে কাজ করে?</h3>
                 <p>
@@ -15,8 +15,8 @@ const QA = () => {
                     উত্তর :
                     Props:
                     ডাটা কে এক component থেকে অন্য component এ পাঠানোর জন্য ব্যবহার করা হয়। props কে শুধুমাত্র read করা যায়। এটি Immutable।
-                    State :
                     <br />
+                    State :
                     ডাটা কে same component ব্যবহার করতে এটি ব্যবহার করা হয়। state কে read এবং write করা যায়। এটি Mutable।
                 </p>
             </div>

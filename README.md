@@ -1,7 +1,8 @@
 # Perfect Course Selector
 
-This website available now! [Perfect Course Selector](https://github.com/facebook/create-react-app).
+This website available now! [Perfect Course Selector](https://perfect-course-selector-react-project-assignment-8.netlify.app/).
 
+https://perfect-course-selector-react-project-assignment-8.netlify.app/
 ## What the work this website?
 
 This website make sure to generate perfect course for you.
