@@ -2,7 +2,7 @@ import React from 'react';
 import "./QA.css";
 const QA = () => {
     return (
-        <div className='test'>
+        <div>
             <div>
                 <h3>প্রশ্ন-১: React কিভাবে কাজ করে?</h3>
                 <p>

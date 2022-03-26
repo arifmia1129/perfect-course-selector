@@ -41,14 +41,7 @@
 }
 
 @media screen and (max-width:576px) {
-    .container{
-        position: relative;
-    }
     .course-container{
-        z-index: -1;
-        position: absolute;
-        top: 100%;
         display: block;
-    }
-    
+    }   
 }

@@ -4,7 +4,7 @@ import { addDb, getStoredCourse, removeDb } from '../../utilities/fakeDb';
 import Course from '../Course/Course';
 import Summary from '../Summary/Summary';
 import "./Container.css";
-
+import QA from "../QA/QA";
 const Container = () => {
     const courses = [
         { id: 1, name: "C Course", price: 1500, img: "images/c.png", duration: "4 month", medium: "Online" },
@@ -34,7 +34,7 @@ const Container = () => {
         }
         setCourse(array);
 
-    }, [])
+    }, []);
     const selectCourse = (selectCourse) => {
 
         const exist = course.find(singleCourse => singleCourse.id === selectCourse.id);
@@ -97,8 +97,11 @@ const Container = () => {
                             </Modal.Header>
                             <Modal.Body>Warning for you select exists course or more than 4 course. It's not allow.</Modal.Body>
                         </Modal>
+
                     </div>
+
                 </Col>
+
                 <Col md={4} sm={12}>
                     <div className='summary-container'>
                         <h2 className='summary-title'>SELECTED COURSE</h2>
@@ -115,8 +118,10 @@ const Container = () => {
                             </div>
                         </div>
                     </div>
+
                 </Col>
             </Row>
+            <QA></QA>
         </div>
     );
 };
