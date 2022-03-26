@@ -3,7 +3,7 @@ import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import "./Course.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
-const Course = ({ course }) => {
+const Course = ({ course, selectCourse }) => {
     const { duration, medium, name, price, img } = course;
 
     return (
@@ -20,7 +20,7 @@ const Course = ({ course }) => {
                 </ListGroup>
                 <Card.Body>
                     <div>
-                        <button className='button'>Choose this course <FontAwesomeIcon icon={faCircleCheck}></FontAwesomeIcon></button>
+                        <button className='button' onClick={() => selectCourse(course)}>Choose this course <FontAwesomeIcon icon={faCircleCheck}></FontAwesomeIcon></button>
                     </div>
                 </Card.Body>
             </Card>

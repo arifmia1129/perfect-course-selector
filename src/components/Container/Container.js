@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import Course from '../Course/Course';
 import "./Container.css";
@@ -22,19 +22,33 @@ const Container = () => {
         { id: 11, name: "Web Development Course", price: 5500, img: "images/web.png", duration: "4 month", medium: "Online" },
         { id: 12, name: "Machine Learning Course", price: 6000, img: "images/machine.png", duration: "4 month", medium: "Online" }
     ];
+    const [course, setCourse] = useState([]);
+    const selectCourse = (selectCourse) => {
+        const exist = course.find(signleCourse => signleCourse.id === selectCourse.id);
+
+        if (!exist) {
+            const totalSelectCourse = [...course, selectCourse];
+            setCourse(totalSelectCourse);
+        }
+        else {
+            alert("This course already exists");
+        }
+
+    }
+    console.log(course);
     return (
         <div className='container'>
             <Row>
                 <Col md={8} sm={12}>
                     <div className='course-container'>
                         {
-                            courses.map(course => <Course key={course.id} course={course}></Course>)
+                            courses.map(course => <Course key={course.id} course={course} selectCourse={selectCourse}></Course>)
                         }
                     </div>
                 </Col>
                 <Col md={4} sm={12}>
-                    <div className='order-container'>
-                        <h1>Order summary</h1>
+                    <div className='summary-container'>
+                        <h2 className='summary-title'>Course Summary</h2>
                     </div>
                 </Col>
             </Row>

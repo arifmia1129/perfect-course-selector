@@ -16,3 +16,13 @@
         display: block;
     }
 }
+
+.summary-container{
+    background: pink;
+    border-radius: 20px;
+    margin-left:20px;
+}
+
+.summary-title{
+    text-align: center;
+}
