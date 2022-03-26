@@ -1,6 +1,8 @@
 import React from 'react';
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import "./Course.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 const Course = ({ course }) => {
     const { duration, medium, name, price, img } = course;
 
@@ -17,8 +19,9 @@ const Course = ({ course }) => {
                     <ListGroupItem>Class system: {medium}</ListGroupItem>
                 </ListGroup>
                 <Card.Body>
-                    <Card.Link href="#">Card Link</Card.Link>
-                    <Card.Link href="#">Another Link</Card.Link>
+                    <div>
+                        <button className='button'>Choose this course <FontAwesomeIcon icon={faCircleCheck}></FontAwesomeIcon></button>
+                    </div>
                 </Card.Body>
             </Card>
         </div>
