@@ -42,7 +42,19 @@ const Container = () => {
 
 
     }
-    console.log(course);
+
+
+    const perfectCourse = () => {
+        function existsFunction() {
+            let exists = course.find(single => single.id === Math.floor(Math.random() * 13));
+            if (!exists) {
+                return existsFunction();
+            }
+            return exists;
+        }
+        const perfectCourse = existsFunction();
+        setCourse([perfectCourse]);
+    }
     return (
         <div className='container'>
             <Row>
@@ -57,8 +69,9 @@ const Container = () => {
                     <div className='summary-container'>
                         <h2 className='summary-title'>Course Summary</h2>
                         {
-                            course.map(singleCourse => <Summary single={singleCourse}></Summary>)
+                            course.map(singleCourse => <Summary key={singleCourse.id} single={singleCourse} perfectCourse={perfectCourse}></Summary>)
                         }
+                        <button onClick={perfectCourse}>For me</button>
                     </div>
                 </Col>
             </Row>

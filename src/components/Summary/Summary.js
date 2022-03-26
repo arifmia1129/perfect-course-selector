@@ -17,6 +17,7 @@ const Summary = ({ single }) => {
                     <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
                 </div>
             </div>
+
         </div>
     );
 };
