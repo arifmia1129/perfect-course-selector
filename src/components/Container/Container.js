@@ -46,7 +46,7 @@ const Container = () => {
 
     const perfectCourse = () => {
         function existsFunction() {
-            let exists = course.find(single => single.id === Math.floor(Math.random() * 13));
+            let exists = course.find(single => single.id === Math.floor(Math.random() * 15));
             if (!exists) {
                 return existsFunction();
             }
@@ -54,6 +54,10 @@ const Container = () => {
         }
         const perfectCourse = existsFunction();
         setCourse([perfectCourse]);
+    }
+
+    const chooseAgain = () => {
+        setCourse([]);
     }
     return (
         <div className='container'>
@@ -71,7 +75,14 @@ const Container = () => {
                         {
                             course.map(singleCourse => <Summary key={singleCourse.id} single={singleCourse} perfectCourse={perfectCourse}></Summary>)
                         }
-                        <button onClick={perfectCourse}>For me</button>
+                        <div className="btn-container">
+                            <div>
+                                <button className='lucky' onClick={perfectCourse}>Perfect for you</button>
+                            </div>
+                            <div>
+                                <button className='again' onClick={chooseAgain}>Choose again</button>
+                            </div>
+                        </div>
                     </div>
                 </Col>
             </Row>
