@@ -64,7 +64,9 @@ const Container = () => {
             if (!exists) {
                 return existsFunction();
             }
-            return exists;
+            else {
+                return exists;
+            }
         }
         const perfectCourse = existsFunction();
         setCourse([perfectCourse]);
