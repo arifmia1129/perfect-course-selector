@@ -7,7 +7,6 @@ const getStoredCourse = () => {
     return courseCart;
 }
 const addDb = (id) => {
-    console.log(id);
     let courseCart;
     const stored = localStorage.getItem("course-cart");
     if (stored) {
