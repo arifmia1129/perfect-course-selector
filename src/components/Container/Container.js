@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
+import { addDb, getStoredCourse, removeDb } from '../../utilities/fakeDb';
 import Course from '../Course/Course';
 import Summary from '../Summary/Summary';
 import "./Container.css";
@@ -24,10 +25,22 @@ const Container = () => {
         { id: 12, name: "Machine Learning", price: 6000, img: "images/machine.png", duration: "4 month", medium: "Online" }
     ];
     const [course, setCourse] = useState([]);
+    useEffect(() => {
+        const storedCourse = getStoredCourse();
+        const array = [];
+        for (const id in storedCourse) {
+            const single = courses.find(course => course.id === parseInt(id));
+            array.push(single);
+        }
+        setCourse(array);
+
+    }, [])
     const selectCourse = (selectCourse) => {
+
         const exist = course.find(singleCourse => singleCourse.id === selectCourse.id);
 
         if (course.length < 4) {
+            addDb(selectCourse.id);
             if (!exist) {
                 const totalSelectCourse = [...course, selectCourse];
                 setCourse(totalSelectCourse);
@@ -58,6 +71,7 @@ const Container = () => {
 
     const chooseAgain = () => {
         setCourse([]);
+        removeDb();
     }
 
     const removeItem = (selectCourse) => {
@@ -76,16 +90,16 @@ const Container = () => {
                 </Col>
                 <Col md={4} sm={12}>
                     <div className='summary-container'>
-                        <h2 className='summary-title'>Course Summary</h2>
+                        <h2 className='summary-title'>SELECTED COURSE</h2>
                         {
                             course.map(singleCourse => <Summary key={singleCourse.id} single={singleCourse} perfectCourse={perfectCourse} removeItem={removeItem}></Summary>)
                         }
                         <div className="btn-container">
                             <div>
-                                <button className='lucky' onClick={perfectCourse}>Perfect for you</button>
+                                <button className='lucky' onClick={perfectCourse}>PERFECT COURSE FOR YOU</button>
                             </div>
                             <div>
-                                <button className='again' onClick={chooseAgain}>Choose again</button>
+                                <button className='again' onClick={chooseAgain}>CHOOSE AGAIN</button>
                             </div>
                         </div>
                     </div>
