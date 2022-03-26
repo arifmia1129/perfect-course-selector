@@ -16,12 +16,12 @@ const Container = () => {
             , duration: "4 month", medium: "Online"
         },
         { id: 6, name: "Python Course", price: 4000, img: "images/python.jpg", duration: "4 month", medium: "Online" },
-        { id: 7, name: "Go Programming Course", price: 4500, img: "images/go.png", duration: "4 month", medium: "Online" },
+        { id: 7, name: "Go Course", price: 4500, img: "images/go.png", duration: "4 month", medium: "Online" },
         { id: 8, name: "HTML Course", price: 1500, img: "images/html.png", duration: "4 month", medium: "Online" },
         { id: 9, name: "CSS Course", price: 1500, img: "images/CSS.png", duration: "4 month", medium: "Online" },
         { id: 10, name: "React Course", price: 1500, img: "images/react.png", duration: "4 month", medium: "Online" },
-        { id: 11, name: "Web Development Course", price: 5500, img: "images/web.png", duration: "4 month", medium: "Online" },
-        { id: 12, name: "Machine Learning Course", price: 6000, img: "images/machine.png", duration: "4 month", medium: "Online" }
+        { id: 11, name: "Web Development", price: 5500, img: "images/web.png", duration: "4 month", medium: "Online" },
+        { id: 12, name: "Machine Learning", price: 6000, img: "images/machine.png", duration: "4 month", medium: "Online" }
     ];
     const [course, setCourse] = useState([]);
     const selectCourse = (selectCourse) => {
@@ -59,6 +59,11 @@ const Container = () => {
     const chooseAgain = () => {
         setCourse([]);
     }
+
+    const removeItem = (selectCourse) => {
+        const rest = course.filter(single => single.id !== selectCourse.id);
+        setCourse(rest);
+    }
     return (
         <div className='container'>
             <Row>
@@ -73,7 +78,7 @@ const Container = () => {
                     <div className='summary-container'>
                         <h2 className='summary-title'>Course Summary</h2>
                         {
-                            course.map(singleCourse => <Summary key={singleCourse.id} single={singleCourse} perfectCourse={perfectCourse}></Summary>)
+                            course.map(singleCourse => <Summary key={singleCourse.id} single={singleCourse} perfectCourse={perfectCourse} removeItem={removeItem}></Summary>)
                         }
                         <div className="btn-container">
                             <div>

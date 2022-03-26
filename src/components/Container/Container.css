@@ -5,24 +5,13 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
-@media screen and (max-width:576px) {
-    .container{
-        position: relative;
-    }
-    .course-container{
-        z-index: -1;
-        position: absolute;
-        top: 50px;
-        display: block;
-    }
-}
 
 .summary-container{
     background: pink;
     border-radius: 20px;
-    margin-left:20px;
     padding: 10px;
-    /* height: 500px; */
+    position: sticky;
+    top: 0;
 }
 
 .summary-title{
@@ -47,4 +36,17 @@
     font-weight: 700;
     display: flex;
     margin: auto;
+}
+
+@media screen and (max-width:576px) {
+    .container{
+        position: relative;
+    }
+    .course-container{
+        z-index: -1;
+        position: absolute;
+        top: 100%;
+        display: block;
+    }
+    
 }

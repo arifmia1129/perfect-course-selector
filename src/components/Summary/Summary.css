@@ -4,10 +4,13 @@
     align-items: center;
     background-color: rgb(255, 255, 255);
     padding: 10px;
-    margin: 20px;
+    margin: 10px;
     border-radius: 20px;
 }
 .single img {
     width: 50px;
     border-radius: 20px;
+}
+.icon{
+    cursor: pointer;
 }
