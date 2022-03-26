@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import Course from '../Course/Course';
+import Summary from '../Summary/Summary';
 import "./Container.css";
 
 const Container = () => {
@@ -24,15 +25,21 @@ const Container = () => {
     ];
     const [course, setCourse] = useState([]);
     const selectCourse = (selectCourse) => {
-        const exist = course.find(signleCourse => signleCourse.id === selectCourse.id);
+        const exist = course.find(singleCourse => singleCourse.id === selectCourse.id);
 
-        if (!exist) {
-            const totalSelectCourse = [...course, selectCourse];
-            setCourse(totalSelectCourse);
+        if (course.length < 4) {
+            if (!exist) {
+                const totalSelectCourse = [...course, selectCourse];
+                setCourse(totalSelectCourse);
+            }
+            else {
+                alert("This course already exists!");
+            }
         }
         else {
-            alert("This course already exists");
+            alert("Hey! You already select 4 course. Selected course range is : 4!")
         }
+
 
     }
     console.log(course);
@@ -49,6 +56,9 @@ const Container = () => {
                 <Col md={4} sm={12}>
                     <div className='summary-container'>
                         <h2 className='summary-title'>Course Summary</h2>
+                        {
+                            course.map(singleCourse => <Summary single={singleCourse}></Summary>)
+                        }
                     </div>
                 </Col>
             </Row>
